@@ -1,0 +1,49 @@
+---
+interface Props{
+    title: string
+    imgSrc: string
+    pills: string[]
+}
+
+const { title, imgSrc, pills } = Astro.props
+---
+
+<a 
+    href={`/carta/${title.toLowerCase()}`}
+    class="card rounded-lg hover:scale-105 transition duration-150 ease-in-out bg-white opacity-80 shadow-xl relative">
+
+    <div class="text-center text-finn-950 font-semibold">
+        {title}
+    </div>
+    
+    <picture>
+        <img src={imgSrc} alt={title} class="w-fit h-auto max-h-48 my-4" alt={title}>
+    </picture>
+
+    <div class="max-w-[100%] flex gap-2 flex-wrap mx-2">
+        {
+            pills.map((pill) => (
+                <span class="text-xs text-white bg-red-500 px-1 rounded-t-md rounded-b-md">{pill}</span>    
+            ))
+        }
+    </div>
+
+    <span 
+        class="absolute bottom-1 right-1 flex items-center text-finn-950"
+        >
+        <span class="text-[0.7rem] font-bold">Ver carta</span>
+        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" class="bi bi-caret-right-fill" viewBox="0 0 16 16">
+            <path d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z"/>
+          </svg>
+    </span>
+
+</a>
+
+<style>
+    .card{
+        max-height: 300px;
+        width: 220px;
+        height: 300px;
+        overflow: hidden;
+    }
+</style>

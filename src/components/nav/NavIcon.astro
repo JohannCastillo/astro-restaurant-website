@@ -1,0 +1,17 @@
+---
+interface Props{
+    width: string,
+    height: string
+}
+
+const { width, height} = Astro.props
+---
+
+<svg
+        width={width}
+        height={height}
+        fill="currentColor"
+        viewBox={`0 0 16 16`}
+      >
+       <slot />
+</svg>

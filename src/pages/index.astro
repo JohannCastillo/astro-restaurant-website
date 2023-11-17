@@ -1,0 +1,74 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Brand from "@/components/Brand.astro";
+import Card from "@/components/Card.astro";
+---
+
+<Layout title="Welcome to Astro">
+  <main
+    slot="main"
+    class="w-full flex flex-col gap-8 max-w-screen-2xl mx-auto"
+  >
+    <section class="flex flex-col">
+      <article class="mx-auto">
+        <Brand />
+      </article>
+      <article class="mx-auto max-w-[800px]">
+        <p>
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Velit labore quas necessitatibus rem commodi nobis est ab, nostrum quo suscipit voluptate maiores harum ea sed, debitis cupiditate officia provident ad.
+        </p>
+      </article>
+    </section>
+
+    <section class="flex flex-col bg-gradient-to-b from-finn-100 to-white">
+      <h1 class="subtitle">Lo que ofrecemos</h1>
+      <article class="cards flex flex-wrap flex-col sm:flex-row">
+        <Card
+          title="Entradas"
+          imgSrc="/public/assets/img/entradas.jpg"
+          pills={["Ceviches", "Leche de tigre", "Causas"]}
+        />
+        <Card
+          title="Segundos"
+          imgSrc="/public/assets/img/segundos.jpg"
+          pills={["Arroces", "Chicharrones", "Pescados", "Especiales de casa"]}
+        />
+        <Card
+          title="Bebidas"
+          imgSrc="/public/assets/img/bebidas.jpg"
+          pills={["Bebidas frías", "Cervezas", "Refrescos"]}
+        />
+      </article>
+    </section>
+
+    <section class="">
+      <article>
+        <h1 class="subtitle">Other section</h1>
+      </article>
+    </section>
+  </main>
+</Layout>
+
+<style>
+  .cards {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    margin: auto;
+    flex-wrap: wrap;
+  }
+
+  .subtitle {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--finn-950);
+    margin-bottom: 15px;
+  }
+  section {
+	@apply my-8 px-12;
+  }
+
+  h1.subtitle {
+    @apply lg:pl-28 md:pl-10;
+  }
+</style>
