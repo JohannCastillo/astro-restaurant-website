@@ -6,37 +6,31 @@ interface Props {
 const { title } = Astro.props;
 ---
 
-<article class="revealing-card flex flex-col sm:flex-row gap-12 bg-red-50 rounded-xl m-2 p-4">
-    <div class="w-full sm:w-[45%] min-w-[45%]">
+<article class="revealing-card  bg-red-50 rounded-xl m-2 p-4">
+    <div class="w-full">
       <h1 class="text-3xl subtitle">{title}</h1>
       <div class="text-lg text-zinc-800">
           <slot name="stats-content" />
       </div>
     </div>
-    <aside class="grow">
-      <img src="/public/assets/img/nosotros1.jpg" class="" alt="">
-    </aside>
 </article>
 
 <style>
   .revealing-card{
     animation-name: reveal;
     animation-duration: 500ms;
-    animation-timing-function: linear;
+    animation-timing-function: ease-out;
     animation-fill-mode: both;
-    animation-timeline: view();
-    animation-range: entry 40% cover 40%;
+    animation-range: entry 50% cover 70%;
   }
 
   @keyframes reveal {
     from {
       opacity: 0;
-      clip-path: inset(45% 20% 45% 20%);
     }
 
     to{
       opacity: 1;
-      clip-path: inset(0% 0% 0% 0%);
     }
   }
 </style>

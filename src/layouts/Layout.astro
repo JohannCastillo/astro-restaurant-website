@@ -1,7 +1,7 @@
 ---
-import NavBar from './navigation/NavBar.astro';
+import NavBar from "./navigation/NavBar.astro";
 interface Props {
-	title: string;
+  title: string;
 }
 
 const { title } = Astro.props;
@@ -9,57 +9,73 @@ const { title } = Astro.props;
 
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="description" content="Astro description" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
-	</head>
-	<body>
-		<header slot="header" class="py-2 px-12 sticky top-0 bg-white z-10">
-			<NavBar />
-		</header>
-		
-		<main class="w-full flex flex-col max-w-screen-2xl mx-auto min-h-screen">
-			<slot name="main"/>
-		</main>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Astro description" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+  </head>
+  <body>
+    <header slot="header" class="py-2 px-12 sticky top-0 bg-white z-10">
+      <NavBar />
+    </header>
 
-		<footer class="bg-finn-900 text-white">
-			footer
-		</footer>
-	</body>
+    <main class="w-full flex flex-col max-w-screen-2xl mx-auto min-h-screen">
+      <slot name="main" />
+    </main>
+
+    <footer class="bg-finn-900 text-white">footer</footer>
+  </body>
 </html>
 <style is:global>
-	:root{
-		--finn-950: #450d3a;
-	}
+  :root {
+    --finn-950: #450d3a;
+  }
 
-	html {
-		font-family: system-ui, sans-serif;
-		color-scheme: light;
-	}
+  html {
+    font-family: system-ui, sans-serif;
+    color-scheme: light;
+  }
 
-	.subtitle {
-		font-weight: bold;
-		color: var(--finn-950);
-	}
+  .subtitle {
+    font-weight: bold;
+    color: var(--finn-950);
+  }
 
-	h1.subtitle {
-		margin-top: 8px;
-		margin-bottom: 12px;
-	}
+  h1.subtitle {
+    margin-top: 8px;
+    margin-bottom: 12px;
+  }
+
+  .revealing-section {
+    animation-name: reveal;
+    animation-timing-function: ease-out;
+    animation-fill-mode: both;
+	animation-timeline: view();
+    animation-range: entry 50% cover 30%;
+  }
+
+  @keyframes reveal {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
 </style>
 
 <style>
-	body{
-		display: grid;
-		grid-template-rows: auto 1fr auto;
-	}
-	footer{
-		margin-top: 20px;
-		height: 150px;
-		width: 100%;
-	}
+  body {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+  }
+  footer {
+    margin-top: 20px;
+    height: 150px;
+    width: 100%;
+  }
 </style>

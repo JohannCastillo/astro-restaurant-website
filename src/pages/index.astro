@@ -7,16 +7,17 @@ import Card from "@/components/Card.astro";
 <Layout title="Welcome to Astro">
   <main
     slot="main"
+    class="[&>section>article]:max-w-3xl"
   >
     <section class="flex flex-col">
       <article class="mx-auto">
         <Brand />
       </article>
-      <article class="mx-auto max-w-full lg:max-w-[50%]">
+      <span class="mx-auto max-w-full lg:max-w-[55%] ">
         <p>
           Lorem ipsum, dolor sit amet consectetur adipisicing elit. Velit labore quas necessitatibus rem commodi nobis est ab, nostrum quo suscipit voluptate maiores harum ea sed, debitis cupiditate officia provident ad.
         </p>
-      </article>
+      </span>
     </section>
 
     <section class="flex flex-col items-center bg-gradient-to-b from-finn-100 to-white">
@@ -40,9 +41,10 @@ import Card from "@/components/Card.astro";
       </article>
     </section>
 
-    <section>
+    <section class="revealing-section flex flex-col items-center">
+      <h1 class="subtitle">Other section</h1>
       <article class="flex justify-center">
-        <h1 class="subtitle self-center">Other section</h1>
+        <img src="/public/assets/img/nosotros1.jpg" alt="">
       </article>
     </section>
   </div>
