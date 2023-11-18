@@ -1,13 +1,21 @@
 ---
 interface Props{
     href: string
+    active?: boolean
 }
 
-const {href} = Astro.props
+const { href, active = false } = Astro.props
 ---
 
 <a href={href} 
-    class="nav-link font-semibold font-mono text-lg text-finn-900 border border-b-2 border-transparent hover:border-[#DC302A]">
+  class:list={[
+        "nav-link font-semibold font-mono text-lg text-finn-900 border border-b-1 hover:border-[#DC302A]",
+        {
+            "border-[#DC302A]": active,
+            "border-transparent": !active
+        },
+    ]}>
+
     <slot/>
 </a>
 

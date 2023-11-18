@@ -1,14 +1,24 @@
 ---
 import NavLink from "@/components/nav/NavLink.astro";
 import NavIcons from "@/components/nav/NavIcons.astro";
+
+const currentPath = Astro.url.pathname
+
+const navLinks = [
+  {path: '/', text: 'Inicio'},
+  {path: '/carta', text: 'Carta'},
+  {path: '/ubicacion', text: 'Ubicación'},
+  {path: '/nosotros', text: 'Nosotros'},
+]
 ---
 
 <nav class="navbar py-2">
   <div class="items-center gap-4 hidden sm:flex justify-between">
-    <NavLink  href="/">Inicio</NavLink>
-    <NavLink href="/carta">Carta</NavLink>
-    <NavLink href="/ubicacion">Ubicación</NavLink>
-    <NavLink href="/nosotros">Nosotros</NavLink>
+    {
+      navLinks.map((link) => (
+        <NavLink href={link.path} active={currentPath === link.path}>{link.text}</NavLink>
+      ))
+    }
   </div>
   
   <!--  -->
