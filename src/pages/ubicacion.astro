@@ -1,10 +1,31 @@
 ---
+import SocialContacts from "@/components/SocialContacts.astro";
 import Layout from "@/layouts/Layout.astro";
-
 ---
 
 <Layout title="Ubicación">
-    <div slot="main">
-        
-    </div>
+  <div slot="main" id="main-section" class="relative">
+    <header class="">
+      <h1 class="subtitle text-4xl text-center">¿Dónde encontrarnos?</h1>
+    </header>
+   
+    <section class="h-[60vh] flex flex-col md:flex-row gap-8">
+      <iframe
+        width="100%"
+        height="100%"
+        src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d9192.83875714519!2d-79.02973364256638!3d-8.127175785699539!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xdeaee743b14519c1!2sCeviche%2026!5e0!3m2!1ses-419!2spe!4v1641065084882!5m2!1ses-419!2spe"
+        allowfullscreen="true"
+        loading="lazy"
+        class="mapa"></iframe>
+
+      <aside class="w-full md:w-[30%] flex flex-col items-center gap-4">
+        <h1 class="subtitle text-2xl text-center">Horarios de atención</h1>
+        <p class="text-center text-xl text-zinc-700">
+            Atendemos de <strong>lunes a viernes desde 10:00 AM - 5:00 PM</strong> del día
+        </p> 
+        <h3 class="text-md font-semibold text-zinc-900">Comunícate con nosotros a través de nuestra redes sociales</h3>
+        <SocialContacts>
+      </aside>
+    </section>
+  </div>
 </Layout>

@@ -1,8 +1,9 @@
 ---
 import Layout from "@/layouts/Layout.astro";
 import Cartas from "@/components/Cartas.astro";
-import NavLink from "@/components/nav/NavLink.astro";
-
+import CartaIcon from "@/components/carta/CartaIcon.astro";
+import SocialNetwork from "@/components/SocialNetwork.astro";
+import SocialContacts from "@/components/SocialContacts.astro";
 const cartas = [
   {
     id: "1",
@@ -35,21 +36,20 @@ const cartas = [
   <div slot="main" id="main-section">
     <header class="relative">
       <article
-        class="sm:absolute bottom-[38px] right-[16px] p-8 bg-[#FFF9DF] bg-opacity-80 rounded-tl-lg"
+        class="sm:max-w-[60%] sm:absolute bottom-[38px] right-[16px] p-2 md:p-8 bg-[#FFF9DF] backdrop-blur-md bg-opacity-50 rounded-tl-lg shadow-2xl"
       >
-        <h3 class="text-md text-zinc-950 font-semibold">
-          Disfruta de nuestros platos bandera
+        <h3 class="text-lg text-zinc-950 font-semibold">
+          Nuestras variedades en platos
         </h3>
         <h1 class="subtitle text-2xl">Frescos, saludables y calificados</h1>
-        <ul class="flex w-full justify-stretch gap-8">
+        <ul class="flex flex-wrap w-full gap-8">
           {
-            cartas.map(({ id, title }) => 
-                <li>
-                  <NavLink href={`#carta${id}`}> {title} </NavLink>
-                </li>
-            )
+            cartas.map(({ id, title }) => (
+              <li>
+                <CartaIcon href={`#${title}`} cartaName={title} />
+              </li>
+            ))
           }
-          <li>Reservar</li>
         </ul>
       </article>
       <picture>
@@ -66,17 +66,27 @@ const cartas = [
       <hr class="mb-4" />
       <article class="flex flex-col w-full gap-12">
         {
-          cartas.map(({ id, title, description }) => (
-            <Cartas
-              id={`carta${id}`}
-              title={title}
-              imgSrc={`/public/assets/img/carta_${id}.jpg`}
-            > 
+          cartas.map(({ id, title, description }, index) => (
+            <Cartas id={title} title={title}>
               <p slot="description">{description}</p>
+              <aside
+                slot={index % 2 === 0 ? "aside-after" : "aside-before"}
+                class="sm:col-span-2"
+              >
+                <img
+                  src={`/public/assets/img/carta_${id}.jpg`}
+                  alt={title}
+                  class="max-w-[90%] object-cover mx-auto"
+                />
+              </aside>
             </Cartas>
           ))
         }
       </article>
     </section>
+
+    <div class="fixed right-5 bottom-5">
+      <SocialContacts mode="vertical"/>
+    </div>
   </div>
 </Layout>

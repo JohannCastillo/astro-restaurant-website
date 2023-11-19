@@ -5,28 +5,35 @@ import Card from "@/components/Card.astro";
 ---
 
 <Layout title="Welcome to Astro">
-  <main
-    slot="main"
-    class="[&>section>article]:max-w-3xl"
-  >
+  <main slot="main" class="[&>section>article]:max-w-3xl">
     <section class="flex flex-col">
       <article class="mx-auto">
         <Brand />
       </article>
-      <span class="mx-auto max-w-full lg:max-w-[55%] ">
+      <span class="mx-auto max-w-full lg:max-w-[55%]">
         <p>
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Velit labore quas necessitatibus rem commodi nobis est ab, nostrum quo suscipit voluptate maiores harum ea sed, debitis cupiditate officia provident ad.
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Velit labore
+          quas necessitatibus rem commodi nobis est ab, nostrum quo suscipit
+          voluptate maiores harum ea sed, debitis cupiditate officia provident
+          ad.
         </p>
       </span>
     </section>
 
-    <section class="flex flex-col items-center bg-gradient-to-b from-red-50 to-white">
-      <h1 class="subtitle">Lo que ofrecemos</h1>
-      <article class="cards flex flex-wrap flex-col sm:flex-row">
+    <section
+      class="flex flex-col items-center bg-gradient-to-b from-red-50 to-white"
+    >
+      <h1 class="subtitle max-w-[620px] text-3xl">Explora nuestro delicioso menú y descubre los sabores únicos de Ceviche 26</h1>
+      <article class="cards flex-col sm:flex-row">
         <Card
           title="Entradas"
           imgSrc="/public/assets/img/entradas.jpg"
           pills={["Ceviches", "Leche de tigre", "Causas"]}
+        />
+        <Card
+          title="Especiales"
+          imgSrc="/public/assets/img/especiales.jpg"
+          pills={["Pescados", "Tacu tacu", "Especiales de la casa"]}
         />
         <Card
           title="Segundos"
@@ -42,12 +49,12 @@ import Card from "@/components/Card.astro";
     </section>
 
     <section class="revealing-section flex flex-col items-center">
-      <h1 class="subtitle">Other section</h1>
+      <h1 class="subtitle max-w-[620px] text-3xl">Descubre las opiniones de nuestros clientes</h1>
       <article class="flex justify-center">
-        <img src="/public/assets/img/nosotros1.jpg" alt="">
+        <img src="/public/assets/img/nosotros1.jpg" alt="" />
       </article>
     </section>
-  </div>
+  </main>
 </Layout>
 
 <style>
@@ -61,9 +68,5 @@ import Card from "@/components/Card.astro";
 
   section {
     @apply my-8 px-12;
-  }
-
-  section h1 {
-    font-size: 1.5rem;
   }
 </style>

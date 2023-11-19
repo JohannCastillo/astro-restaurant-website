@@ -13,34 +13,36 @@ const values = [
     value: "Creatividad e innovación",
     description:
       "Incorporar nuevas ideas que permitan desarrollar y mejorar el servicio",
-  },{
+  },
+  {
     value: "Calidad y servicio",
-    description: "Compromiso con la cultura de la empresa. Satisfacer todas las necesidades y expectativas del cliente"
-  },{
+    description:
+      "Compromiso con la cultura de la empresa. Satisfacer todas las necesidades y expectativas del cliente",
+  },
+  {
     value: "Esfuerzo y dedicación",
-    description: "Ser persistente en el logro de los objetivos, trabajando con compromiso, cooperación y disciplina"
-  },{
+    description:
+      "Ser persistente en el logro de los objetivos, trabajando con compromiso, cooperación y disciplina",
+  },
+  {
     value: "Pasión",
-    description: "Trabajar con la pasión y el amor que nos caracteriza"
-  }
+    description: "Trabajar con la pasión y el amor que nos caracteriza",
+  },
 ];
 ---
 
 <Layout title="Nosotros">
-  <div
-    slot="main"
-    id="main-section"
-  >
+  <div slot="main" id="main-section">
     <section class="flex flex-col sm:flex-row">
       <article class="w-full sm:w-[50%] mb-4">
         <h1 class="subtitle text-5xl">
-          We’re changing the way people connect.
+          Somos más que un restaurante, somos una familia.
         </h1>
         <p class="text-xl text-zinc-600">
-          Somos una gran familia dedicada a brindarles la mejor experiencia
-          culinaria con la pasión que nos caracteriza. Cada una de las personas
-          en nuestro equipo está comprometida a transportarte mediante nuestros
-          sabores a una aventura memorable.
+          Una gran familia dedicada a brindarles la mejor experiencia culinaria
+          con la pasión que nos caracteriza. Cada una de las personas en nuestro
+          equipo está comprometida a transportarte mediante nuestros sabores a
+          una aventura memorable.
         </p>
       </article>
       <aside class="w-full h-full sm:w-[50%] sm:m-4">
@@ -53,31 +55,38 @@ const values = [
     </section>
 
     <section class="flex flex-col sm:flex-row">
-        <OurStats title="Misión">
-            <p slot="stats-content">
-              Buscamos la excelencia en la preparación de la comida marina a
-              través de insumos de calidad, en un ambiente agradable desarrollados
-              por un equipo humano competente y comprometidos en proporcionar
-              excelente servicio y satisfacción.
-            </p>         
-        </OurStats>
-        <OurStats title="Visión">
-          <p slot="stats-content">
-              Ser reconocidos como el mejor restaurante de comida marina a nivel nacional, por los altos estándares de calidad en el servicio, innovación en el mercado y creando experiencias agradables al paladar de nuestros clientes 
-          </p>
-        </OurStats> 
+      <OurStats title="Misión">
+        <p slot="stats-content">
+          Buscamos la excelencia en la preparación de la comida marina a través
+          de insumos de calidad, en un ambiente agradable desarrollados por un
+          equipo humano competente y comprometidos en proporcionar excelente
+          servicio y satisfacción.
+        </p>
+      </OurStats>
+      <OurStats title="Visión">
+        <p slot="stats-content">
+          Ser reconocidos como el mejor restaurante de comida marina a nivel
+          nacional, por los altos estándares de calidad en el servicio,
+          innovación en el mercado y creando experiencias agradables al paladar
+          de nuestros clientes
+        </p>
+      </OurStats>
     </section>
 
     <section class="w-full">
       <h1 class="subtitle text-4xl text-center">Valores</h1>
-      <article class="flex flex-wrap justify-evenly gap-4">
-        {
-            values.map(({value, description}) => (
-                <Values value={value} description={description}/>
+      <article class="flex flex-col sm:flex-row ">
+        <figure class="m-2 w-full sm:w-[50%] min-w-[300px]">
+          <img src="/public/assets/img/nosotros2.jpg" alt="nosotros" class="revealing-section rounded-xl h-full w-full object-cover object-left">
+        </figure>
+        <div class="flex flex-wrap gap-4 w-full justify-center">
+          {
+            values.map(({ value, description }) => (
+              <Values value={value} description={description} />
             ))
-        }
+          }
+        </div>
       </article>
     </section>
   </div>
 </Layout>
-<style></style>

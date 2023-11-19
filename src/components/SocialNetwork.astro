@@ -1,0 +1,22 @@
+---
+interface Props {
+    containerClass?: string
+    iconClass?: string
+}
+
+const { containerClass, iconClass } = Astro.props
+---
+
+<div 
+    class:list={[
+        "rounded-full w-[40px] h-[40px] cursor-pointer hover:scale-105 transition duration-150 ease-in-out",
+        containerClass
+    ]}
+>
+    <svg class:list={[
+        "w-full h-full scale-[1.1]",
+        iconClass
+    ]} fill="currentColor" viewBox="-4 0 24 16">
+        <slot />
+    </svg>
+</div>
