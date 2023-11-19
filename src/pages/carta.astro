@@ -36,12 +36,12 @@ const cartas = [
   <div slot="main" id="main-section">
     <header class="relative">
       <article
-        class="sm:max-w-[60%] sm:absolute bottom-[38px] right-[16px] p-2 md:p-8 bg-[#FFF9DF] backdrop-blur-md bg-opacity-50 rounded-tl-lg shadow-2xl"
+        class="sm:max-w-[60%] sm:absolute bottom-[38px] right-[16px] p-2 md:p-8 bg-[#FFF9DF] backdrop-blur-sm bg-opacity-50 rounded-tl-lg shadow-2xl"
       >
         <h3 class="text-lg text-zinc-950 font-semibold">
-          Nuestras variedades en platos
+          Verifica la carta de nuestras variedades
         </h3>
-        <h1 class="subtitle text-2xl">Frescos, saludables y calificados</h1>
+        <h1 class="subtitle text-2xl">Almuerzos y bebidas frescas y saludables</h1>
         <ul class="flex flex-wrap w-full gap-8">
           {
             cartas.map(({ id, title }) => (
@@ -77,6 +77,7 @@ const cartas = [
                   src={`/public/assets/img/carta_${id}.jpg`}
                   alt={title}
                   class="max-w-[90%] object-cover mx-auto"
+                  loading="lazy"
                 />
               </aside>
             </Cartas>

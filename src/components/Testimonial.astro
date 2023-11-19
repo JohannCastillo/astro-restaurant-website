@@ -1,0 +1,54 @@
+---
+interface Props {
+    name: string
+    personImageSrc: string
+    socialNetwork: string
+}
+
+const { name, personImageSrc, socialNetwork } = Astro.props
+---
+
+<div class="testimonial-card flex justify-between m-8 h-[50vh] relative">
+    <div class="testimonial-content rounded-3xl shadow-2xl">
+        <h1 class="text-3xl font-semibold">{name}</h1>
+        <span class="text-sm text-finn-950"> Via {socialNetwork.toLowerCase()}</span>
+        <div class="text-[1.2rem] text-zinc-700 font-bold mt-4">
+            <slot name="testimonial"/>
+        </div>
+    </div>
+    <figure class="w-[50%] absolute right-[-70px] bottom-[-40px] top-[-20px] p-4 z-0">
+        <img src={personImageSrc} alt={name} class="object-cover h-full w-[90%] min-w-[200px] rounded-2xl rotate-12">
+    </figure>
+</div>
+
+<style is:global>
+    .testimonial-content {
+        z-index: 1;
+        backdrop-filter: blur(80px);
+        width: 300px;
+        padding: 40px 24px;
+        background-color: rgba(222, 222, 222, 0.8);
+    }
+
+    .testimonial-card{
+        animation: move-l-r 8s alternate infinite linear;
+    }
+
+     #testimonials-container:hover .testimonial-card{
+        animation-play-state: paused;
+    } 
+
+    #testimonials-container:active .testimonial-card{
+        animation-play-state: paused;
+    }
+
+    @keyframes move-l-r{
+        0%{
+            transform: translateX(0);
+        }
+
+        100%{
+            transform: translateX(calc(-100%*2 - 70%));  /* -100% * (Num of cards - 1) - (a % to see the complete last card) */
+        }
+    }
+</style>

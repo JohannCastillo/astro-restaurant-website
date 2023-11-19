@@ -2,6 +2,7 @@
 import Layout from "../layouts/Layout.astro";
 import Brand from "@/components/Brand.astro";
 import Card from "@/components/Card.astro";
+import Testimonial from "@/components/Testimonial.astro";
 ---
 
 <Layout title="Welcome to Astro">
@@ -14,8 +15,7 @@ import Card from "@/components/Card.astro";
         <p>
           Lorem ipsum, dolor sit amet consectetur adipisicing elit. Velit labore
           quas necessitatibus rem commodi nobis est ab, nostrum quo suscipit
-          voluptate maiores harum ea sed, debitis cupiditate officia provident
-          ad.
+          voluptate maiores harum ea sed.
         </p>
       </span>
     </section>
@@ -23,7 +23,10 @@ import Card from "@/components/Card.astro";
     <section
       class="flex flex-col items-center bg-gradient-to-b from-red-50 to-white"
     >
-      <h1 class="subtitle max-w-[620px] text-3xl">Explora nuestro delicioso menú y descubre los sabores únicos de Ceviche 26</h1>
+      <h1 class="subtitle max-w-[620px] text-3xl text-center">
+        Explora nuestro delicioso menú y descubre los sabores únicos de Ceviche
+        26
+      </h1>
       <article class="cards flex-col sm:flex-row">
         <Card
           title="Entradas"
@@ -49,9 +52,41 @@ import Card from "@/components/Card.astro";
     </section>
 
     <section class="revealing-section flex flex-col items-center">
-      <h1 class="subtitle max-w-[620px] text-3xl">Descubre las opiniones de nuestros clientes</h1>
-      <article class="flex justify-center">
-        <img src="/public/assets/img/nosotros1.jpg" alt="" />
+      <h1 class="subtitle max-w-[620px] text-3xl">
+        Opiniones de nuestros clientes
+      </h1>
+      <article
+        id="testimonials-container"
+        class="flex gap-[150px] overflow-hidden justify-start px-8" 
+      >
+        <Testimonial
+          name="Luis Martínez"
+          socialNetwork="Facebook"
+          personImageSrc="/public/assets/img/modelo1.jpg"
+        >
+          <p slot="testimonial">
+            Buenísimo! buen local, buena atención y la comida espectacular!
+          </p>
+        </Testimonial>
+        <Testimonial
+          name="Marcos Gutiérrez"
+          socialNetwork="Facebook"
+          personImageSrc="/public/assets/img/modelo2.jpg"
+        >
+          <p slot="testimonial">
+            Muy buena atención y la comida de primera totalmente recomendado.
+          </p>
+        </Testimonial>
+        <Testimonial
+          name="Patty Sare"
+          socialNetwork="Facebook"
+          personImageSrc="/public/assets/img/modelo.jpg"
+        >
+          <p slot="testimonial">
+            Rico, sabroso y muy buena presentación de sus platos iré nuevamente
+            muy pronto 👍
+          </p>
+        </Testimonial>
       </article>
     </section>
   </main>
