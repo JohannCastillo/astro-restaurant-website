@@ -1,19 +1,29 @@
 ---
-interface Props{
-    id: string
-    title: string
+interface Props {
+  id: string;
+  title: string;
+  isOdd: boolean;
 }
 
-const { id, title } = Astro.props
+const { id, title, isOdd } = Astro.props;
 ---
 
-<div class="grid sm:grid-cols-3 w-full" id={id} style="scroll-margin-top: 50px;">
-    <slot name="aside-before"/>
-    <div class="p-8">
-        <h1 class="text-3xl text-finn-950 font-extrabold">{title}</h1>
-        <div class="md:text-xl font-semibold text-zinc-700">
-            <slot name="description"/>
-        </div>
+<div
+  class:list={[
+    "flex flex-col w-full",
+    {
+      "sm:flex-row-reverse": !isOdd,
+      "sm:flex-row": isOdd,
+    },
+  ]}
+  id={id}
+  style="scroll-margin-top: 50px;"
+>
+  <div class="p-8 w-full sm:w-[70%]">
+    <h1 class="text-3xl text-finn-950 font-extrabold">{title}</h1>
+    <div class="md:text-xl font-semibold text-zinc-700">
+      <slot name="description" />
     </div>
-    <slot name="aside-after"/>
+  </div>
+  <slot />
 </div>

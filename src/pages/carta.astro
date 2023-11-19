@@ -67,10 +67,13 @@ const cartas = [
       <article class="flex flex-col w-full gap-12">
         {
           cartas.map(({ id, title, description }, index) => (
-            <Cartas id={title} title={title}>
+            <Cartas 
+              id={title} 
+              title={title}
+              isOdd={index % 2 === 0}
+              >
               <p slot="description">{description}</p>
               <aside
-                slot={index % 2 === 0 ? "aside-after" : "aside-before"}
                 class="sm:col-span-2"
               >
                 <img

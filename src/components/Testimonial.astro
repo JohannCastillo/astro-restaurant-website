@@ -8,7 +8,7 @@ interface Props {
 const { name, personImageSrc, socialNetwork } = Astro.props
 ---
 
-<div class="testimonial-card flex m-8 h-[50vh]">
+<div class="testimonial-card flex m-8 max-h-[50vh]">
     <div class="testimonial-content rounded-3xl shadow-2xl">
         <h1 class="text-3xl font-semibold">{name}</h1>
         <span class="text-sm text-finn-950"> Via {socialNetwork.toLowerCase()}</span>
