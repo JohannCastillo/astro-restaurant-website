@@ -2,40 +2,68 @@
 import NavLink from "@/components/nav/NavLink.astro";
 import NavIcons from "@/components/nav/NavIcons.astro";
 
-const currentPath = Astro.url.pathname
+const currentPath = Astro.url.pathname;
 
 const navLinks = [
-  {path: '/', text: 'Inicio'},
-  {path: '/carta', text: 'Carta'},
-  {path: '/ubicacion', text: 'Ubicación'},
-  {path: '/nosotros', text: 'Nosotros'},
-]
+  { path: "/", text: "Inicio" },
+  { path: "/carta", text: "Carta" },
+  { path: "/ubicacion", text: "Ubicación" },
+  { path: "/nosotros", text: "Nosotros" },
+];
 ---
 
-<nav class="navbar py-2">
-  <div class="items-center gap-4 hidden sm:flex justify-between">
-    {
-      navLinks.map((link) => (
-        <NavLink href={link.path} active={currentPath === link.path}>{link.text}</NavLink>
-      ))
-    }
-  </div>
-  
-  <!--  -->
-  <div class="flex sm:hidden">
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
-      <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
-    </svg>
-  </div>
+<header class="py-2 px-12 sticky top-0 bg-white z-10">
+  <nav class="navbar py-2">
+    <div class="items-center gap-4 hidden sm:flex justify-between">
+      {
+        navLinks.map((link) => (
+          <NavLink href={link.path} active={currentPath === link.path}>
+            {link.text}
+          </NavLink>
+        ))
+      }
+    </div>
 
-  <NavIcons />
+    <!--  -->
+    <div class="flex sm:hidden">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        fill="currentColor"
+        class="bi bi-list"
+        viewBox="0 0 16 16"
+      >
+        <path
+          fill-rule="evenodd"
+          d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"
+        ></path>
+      </svg>
+    </div>
 
-</nav>
+    <NavIcons />
+  </nav>
+</header>
 
 <style>
   .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
+  }
+
+  header{
+    animation: minimize linear both;
+    animation-timeline: scroll(root);
+  }
+
+  @keyframes minimize{
+    to{
+      padding-top: 0;
+      padding-bottom: 0;
+      /* blur background */
+      background-color: rgba(246, 240, 240, 0.9);
+      color: white;
+    }
   }
 </style>

@@ -1,5 +1,7 @@
 ---
 import NavBar from "./navigation/NavBar.astro";
+import { ViewTransitions } from "astro:transitions";
+
 interface Props {
   title: string;
 }
@@ -16,11 +18,12 @@ const { title } = Astro.props;
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
+    <ViewTransitions />
   </head>
   <body>
-    <header slot="header" class="py-2 px-12 sticky top-0 bg-white z-10">
+    <!-- <header class="py-2 px-12 sticky top-0 bg-white z-10"> -->
       <NavBar />
-    </header>
+    <!-- </header> -->
 
     <main class="w-full flex flex-col max-w-screen-2xl mx-auto min-h-screen">
       <slot name="main" />
@@ -49,11 +52,31 @@ const { title } = Astro.props;
     margin-bottom: 12px;
   }
 
+  #main-section {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  #main-section > section {
+    max-width: 56rem;
+    margin: auto;
+    width: 100%;
+    padding: 16px;
+  }
+
+  #main-section > header{
+    max-width: 56rem;
+    margin: auto;
+    width: 100%;
+    padding: 16px;
+  }
+
   .revealing-section {
     animation-name: reveal;
     animation-timing-function: ease-out;
     animation-fill-mode: both;
-	animation-timeline: view();
+	  animation-timeline: view();
     animation-range: entry 50% cover 30%;
   }
 
@@ -78,4 +101,5 @@ const { title } = Astro.props;
     height: 150px;
     width: 100%;
   }
+
 </style>

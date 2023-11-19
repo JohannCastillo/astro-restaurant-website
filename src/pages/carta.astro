@@ -1,10 +1,82 @@
 ---
 import Layout from "@/layouts/Layout.astro";
+import Cartas from "@/components/Cartas.astro";
+import NavLink from "@/components/nav/NavLink.astro";
 
+const cartas = [
+  {
+    id: "1",
+    title: "Entradas",
+    description:
+      "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Enim quia eaque ipsum temporibus quae impedit awuck laram panisa",
+  },
+  {
+    id: "2",
+    title: "Especiales",
+    description:
+      "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Enim quia eaque ipsum temporibus quae impedit awuck laram panisa",
+  },
+  {
+    id: "3",
+    title: "Segundos",
+    description:
+      "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Enim quia eaque ipsum temporibus quae impedit awuck laram panisa",
+  },
+  {
+    id: "4",
+    title: "Bebidas",
+    description:
+      "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Enim quia eaque ipsum temporibus quae impedit awuck laram panisa",
+  },
+];
 ---
 
 <Layout title="Carta">
-    <div slot="main">
-        
-    </div>
+  <div slot="main" id="main-section">
+    <header class="relative">
+      <article
+        class="sm:absolute bottom-[38px] right-[16px] p-8 bg-[#FFF9DF] bg-opacity-80 rounded-tl-lg"
+      >
+        <h3 class="text-md text-zinc-950 font-semibold">
+          Disfruta de nuestros platos bandera
+        </h3>
+        <h1 class="subtitle text-2xl">Frescos, saludables y calificados</h1>
+        <ul class="flex w-full justify-stretch gap-8">
+          {
+            cartas.map(({ id, title }) => 
+                <li>
+                  <NavLink href={`#carta${id}`}> {title} </NavLink>
+                </li>
+            )
+          }
+          <li>Reservar</li>
+        </ul>
+      </article>
+      <picture>
+        <img
+          src="/public/assets/img/principal3.jpg"
+          alt="Restaurante"
+          class="w-full max-h-[500px] object-fill rounded-lg"
+        />
+      </picture>
+    </header>
+
+    <section>
+      <h1 class="subtitle text-center text-4xl">Nuestra carta</h1>
+      <hr class="mb-4" />
+      <article class="flex flex-col w-full gap-12">
+        {
+          cartas.map(({ id, title, description }) => (
+            <Cartas
+              id={`carta${id}`}
+              title={title}
+              imgSrc={`/public/assets/img/carta_${id}.jpg`}
+            > 
+              <p slot="description">{description}</p>
+            </Cartas>
+          ))
+        }
+      </article>
+    </section>
+  </div>
 </Layout>

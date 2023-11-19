@@ -1,0 +1,21 @@
+---
+interface Props{
+    id: string
+    title: string
+    imgSrc: string
+}
+
+const { id, title, imgSrc } = Astro.props
+---
+
+<div class="grid sm:grid-cols-3 w-full" id={id} style="scroll-margin-top: 96px;">
+    <div class="p-8">
+        <h1 class="text-3xl text-finn-950 font-extrabold">{title}</h1>
+        <div class="md:text-xl font-semibold text-zinc-700">
+            <slot name="description"/>
+        </div>
+    </div>
+    <aside class="sm:col-span-2">
+        <img src={imgSrc} alt={title} class="max-w-[90%] object-cover mx-auto">
+    </aside>
+</div>
