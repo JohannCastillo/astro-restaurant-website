@@ -10,6 +10,7 @@ const navLinks = [
   { path: "/ubicacion", text: "Ubicación" },
   { path: "/nosotros", text: "Nosotros" },
 ];
+
 ---
 
 <header class="py-2 px-12 sticky top-0 bg-white z-10">
@@ -26,7 +27,7 @@ const navLinks = [
 
     <!--  -->
     <div class="flex sm:hidden">
-      <button>
+      <button onclick="showSideNav()">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="28"
@@ -43,8 +44,8 @@ const navLinks = [
       </button>
     </div>
 
-    <div class="sm:hidden fixed left-0 top-0 bottom-0 bg-[rgba(255,255,255,0.98)] w-[50%]">
-      <div class="items-center gap-4 flex flex-col justify-between">
+    <nav id="sidenav" class="sm:hidden fixed top-[40px] left-0 right-0 bg-white">
+      <div class="ml-12 pt-6 items-start gap-4 flex flex-col justify-between">
         {
           navLinks.map((link) => (
             <NavLink href={link.path} active={currentPath === link.path}>
@@ -53,11 +54,18 @@ const navLinks = [
           ))
         }
       </div>
-    </div>
+    </nav>
 
     <NavIcons />
   </nav>
 </header>
+    
+<script is:inline>
+  function showSideNav() {
+    const sidebar = document.getElementById("sidenav");
+    sidebar?.classList.toggle("hidden");
+  }
+</script>
 
 <style>
   .navbar {
