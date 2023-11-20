@@ -43,7 +43,7 @@ const cartas = [
         <h1 class="subtitle text-2xl">Almuerzos y bebidas frescas y saludables</h1>
         <ul class="flex flex-wrap w-full gap-8">
           {
-            cartas.map(({ id, title }) => (
+            cartas.map(({ title }) => (
               <li>
                 <CartaIcon href={`#${title}`} cartaName={title} />
               </li>
