@@ -8,7 +8,7 @@ interface Props {
 const { name, personImageSrc, socialNetwork } = Astro.props
 ---
 
-<div class="testimonial-card flex m-8 max-h-[50vh]">
+<div class="testimonial-card flex flex-col sm:flex-row mx-8">
     <div class="testimonial-content rounded-3xl shadow-2xl">
         <h1 class="text-3xl font-semibold">{name}</h1>
         <span class="text-sm text-finn-950"> Via {socialNetwork.toLowerCase()}</span>
@@ -33,8 +33,18 @@ const { name, personImageSrc, socialNetwork } = Astro.props
     .testimonial-card{
         animation: move-l-r 8s alternate infinite linear;
     }
+    
+    #testimonials-container{
+        --cards-to-traslate: 4;
+    }
 
-     #testimonials-container:hover .testimonial-card{
+    @media (min-width: 450px) {
+        #testimonials-container{
+            --cards-to-traslate: 3; /*Larger screens */
+        }
+    }
+
+    #testimonials-container:hover .testimonial-card{
         animation-play-state: paused;
     } 
 
@@ -44,11 +54,13 @@ const { name, personImageSrc, socialNetwork } = Astro.props
 
     @keyframes move-l-r{
         0%{
-            transform: translateX(0);
+            transform: translateX(100%);
         }
 
-        100%{
-            transform: translateX(calc(-100%*2 - 70%));  /* -100% * (Num of cards - 1) - (a % to see the complete last card) */
-        }
+         100%{
+            transform: translateX(calc(-100%*var(--cards-to-traslate)));  
+        } 
     }
+
+    
 </style>
