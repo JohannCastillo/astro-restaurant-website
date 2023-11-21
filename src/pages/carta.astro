@@ -8,7 +8,7 @@ const cartas = [
     id: "1",
     title: "Entradas",
     description:
-      "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Enim quia eaque ipsum temporibus quae impedit awuck laram panisa",
+      `Lorem ipsum dolor sit, amet consectetur adipisicing elit. Enim quia eaque ipsum temporibus quae impedit awuck laram panisa consectetur adipisicing elit panisa consectetur adipisicing elit`,
   },
   {
     id: "2",
@@ -35,12 +35,12 @@ const cartas = [
   <div slot="main" id="main-section">
     <header class="relative">
       <article
-        class="sm:max-w-[60%] sm:absolute bottom-[38px] right-[16px] p-2 md:p-8 bg-[#FFF9DF] backdrop-blur-sm bg-opacity-50 rounded-tl-lg shadow-2xl"
+        class="sm:max-w-[60%] sm:absolute bottom-[16px] right-[16px] bg-white py-2 px-4 md:px-8 bg backdrop-blur-md bg-opacity-50 rounded-tl-lg shadow-2xl"
       >
-        <h3 class="text-lg text-zinc-950 font-semibold">
+        <h3 class="text-lg text-white font-semibold bg-finn-950 w-fit px-4 py-1 rounded-md">
           Verifica la carta de nuestras variedades
         </h3>
-        <h1 class="subtitle text-2xl">Almuerzos y bebidas frescas y saludables</h1>
+        <h1 class="subtitle text-3xl px-4 border-l-2 border-finn-950">Almuerzos saludables y bebidas frescas</h1>
         <ul class="flex flex-wrap w-full gap-8">
           {
             cartas.map(({ title }) => (
@@ -53,7 +53,7 @@ const cartas = [
       </article>
       <picture>
         <img
-          src="/assets/img/principal3.jpg"
+          src="/assets/img/barra.jpg"
           alt="Restaurante"
           class="w-full max-h-[500px] object-fill rounded-lg"
         />
@@ -65,20 +65,23 @@ const cartas = [
       <hr class="mb-4" />
       <article class="flex flex-col w-full gap-12">
         {
-          cartas.map(({ id, title, description }, index) => (
+          cartas.map(({ id, title, description}, index) => (
             <Cartas 
               id={title} 
               title={title}
               isOdd={index % 2 === 0}
               >
-              <p slot="description">{description}</p>
+              <div slot="description">
+                <p>{description}</p>
+              </div>
+              
               <aside
                 class="sm:col-span-2"
               >
                 <img
                   src={`/assets/img/carta_${id}.jpg`}
                   alt={title}
-                  class="max-w-[90%] object-cover mx-auto"
+                  class="w-full object-cover rounded-xl shadow-2xl"
                   loading="lazy"
                 />
               </aside>

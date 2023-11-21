@@ -19,9 +19,18 @@ const { id, title, isOdd } = Astro.props;
   id={id}
   style="scroll-margin-top: 50px;"
 >
-  <div class="p-8 w-full sm:w-[70%]">
-    <h1 class="text-3xl text-finn-950 font-extrabold">{title}</h1>
-    <div class="md:text-xl font-semibold text-zinc-700">
+  <div class="p-8 w-full sm:w-[70%] relative">
+    <div 
+      class:list={[
+        "absolute top-0 bottom-[-120px] z-[-1] sm:bg-lime-200 rounded-xl",
+        {
+          "right-0 left-[-10%]":!isOdd,
+          "left-0 right-[-10%]":isOdd
+        }
+      ]}
+    ></div>
+    <h1 class="text-3xl text-finn-950 font-extrabold z-[10]">{title}</h1>
+    <div class="md:text-xl font-semibold text-zinc-700 z-[1]">
       <slot name="description" />
     </div>
   </div>
