@@ -6,7 +6,7 @@ import Testimonial from "@/components/Testimonial.astro";
 ---
 
 <Layout title="Cevichería23">
-  <main slot="main" class="[&>section>article]:max-w-3xl">
+  <div slot="main" id="main-section">
     <section class="flex flex-col">
       <article class="mx-auto">
         <Brand />
@@ -88,7 +88,7 @@ import Testimonial from "@/components/Testimonial.astro";
         </Testimonial>
       </article>
     </section>
-  </main>
+  </div>
 </Layout>
 
 <style>

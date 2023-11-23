@@ -22,7 +22,7 @@ const { id, title, isOdd } = Astro.props;
   <div class="p-8 w-full sm:w-[70%] relative">
     <div 
       class:list={[
-        "absolute top-0 bottom-[-120px] z-[-1] sm:bg-lime-200 rounded-xl",
+        "hidden sm:block absolute top-0 bottom-[-120px] z-[-1] sm:bg-lime-200 rounded-xl",
         {
           "right-0 left-[-10%]":!isOdd,
           "left-0 right-[-10%]":isOdd
