@@ -21,10 +21,10 @@ import Testimonial from "@/components/Testimonial.astro";
     </section>
 
     <section
-      class="flex flex-col items-center bg-gradient-to-b from-red-50 to-white"
+      class="flex flex-col items-center bg-gradient-to-b from-red-100 to-white rounded-2xl"
     >
       <h1 class="subtitle max-w-[620px] text-3xl text-center">
-        Explora nuestro delicioso menú y descubre los sabores únicos de Cevichería 23
+        Explora nuestro delicioso menú y descubre sabores únicos
       </h1>
       <article class="cards flex flex-wrap">
         <Card
@@ -50,13 +50,13 @@ import Testimonial from "@/components/Testimonial.astro";
       </article>
     </section>
 
-    <section class="revealing-section flex flex-col items-center w-full overflow-hidden">
-      <h1 class="subtitle max-w-[620px] text-3xl">
+    <section class="revealing-section flex flex-col items-center w-full overflow-hidden relative">
+      <h1 class="subtitle max-w-[620px] text-3xl text-center">
         Opiniones de nuestros clientes
       </h1>
       <article
         id="testimonials-container"
-        class="flex gap-[150px] overflow-hidden justify-start px-8 py-12" 
+        class="t-container flex gap-[150px] overflow-hidden justify-start px-8 py-12" 
       >
         <Testimonial
           name="Luis Martínez"
@@ -102,5 +102,28 @@ import Testimonial from "@/components/Testimonial.astro";
 
   section {
     @apply my-8 px-12;
+  }
+  .t-container{
+    position: relative;
+    width: 100%;
+  }
+  .t-container::before, 
+  .t-container::after {
+    content: "";
+    width: 30px;
+    height: 100%;
+    position: absolute;
+  }
+  .t-container::before {
+    background-image: linear-gradient(to left, rgb(255, 255, 255, 0), white);
+    left: 0;
+    top: 0;
+    z-index: 1;
+  }
+  .t-container::after {
+    background-image: linear-gradient(to right, rgba(255, 255, 255, 0), white);
+    right: 0;
+    top: 0;
+    z-index: 1;
   }
 </style>
